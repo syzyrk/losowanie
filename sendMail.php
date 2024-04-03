@@ -37,9 +37,9 @@ if (isset($_POST['submit'])) {
 
         // Wysłanie wiadomości e-mail
         $mail->send();
-        echo "Wiadomość została wysłana z kodem weryfikacyjnym: $kod";
+        echo "<script>alert('Wiadomość została wysłana z kodem weryfikacyjnym: $kod')</script>";
     } catch (Exception $e) {
-        echo "Wystąpił błąd podczas wysyłania wiadomości: {$mail->ErrorInfo}";
+        echo "<script>alert('Wystąpił błąd podczas wysyłania wiadomości: {$mail->ErrorInfo}')</script>";
     }
 }
 ?>
