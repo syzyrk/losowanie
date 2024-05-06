@@ -9,7 +9,11 @@ function checkStatus(funkcja){
             funkcja()
             return true;
         case 1:
-            console.log("Zajęty! Nie wywołuję");
+            if (confirm("Masz nie zapisane zmiany. Czy na pewno chcesz kontynuować?") == true) {
+                funkcja()
+            } else {
+                console.log("Zajęty! Nie wywołuję")
+            }   
             return false;
         default:
             console.log("Default");
