@@ -1,0 +1,332 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: white;
+    width: 500px;
+    max-width: 80%;
+  }
+  
+  .modal.active {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .modal-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+  }
+  
+  .modal-header .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .modal-header .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .modal-body {
+    padding: 10px 15px;
+  }
+  
+  #overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+  }
+  
+  #overlay.active {
+    opacity: 1;
+    user-select: none;
+
+  }
+  body {
+    font-family: "Lato", sans-serif;
+  }
+  
+  .header {
+    background-color: #ffffff;
+    color: black; /* Zmieniłem kolor tekstu na czarny, aby był widoczny na białym tle */
+    text-align: right;
+    padding-top: 1px;
+    padding-right: 5px;
+  }
+
+  .logoutPanel {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd; /* Dodajemy lekki cień */
+    padding: 5px;
+    width: 200px; /* Dostosuj szerokość okienka */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Dodajemy lekki cień */
+  }
+  
+  .sidenav {
+    height: 100%;
+    width: 15%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav a.logout {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+  }
+  
+  #main {
+    margin-left: 16%; /* Same as the width of the sidenav */
+    padding: 0px 10px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+  
+  .podpisUzytkownika{
+    color: #111;
+    font-size: 25px;
+  }
+  .podpisUzytkownika:hover{
+    cursor: pointer;
+  }
+
+  .buttons{
+    text-align: center;
+  }
+
+  .input input, .input button{
+    width: 100%;
+  }
+
+
+  #loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 120px;
+    height: 120px;
+    margin: -76px 0 0 -76px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+  
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+
+  .settings {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.settings h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.settings form {
+    margin-top: 20px;
+}
+
+.settings label {
+    color: #555;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.settings input[type="checkbox"] {
+    margin-bottom: 10px;
+}
+
+.settings input[type="datetime-local"],
+.settings input[type="date"] {
+    margin-bottom: 10px;
+    width: calc(100% - 20px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.settings input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+
+.settings input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+.slider-checkbox {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.slider-checkbox input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider-checkbox label {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    background-color: #ccc;
+    border-radius: 34px;
+    transition: .4s;
+}
+
+.slider-checkbox label:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: .4s;
+}
+
+.slider-checkbox input:checked + label {
+    background-color: #2196F3;
+}
+
+.slider-checkbox input:focus + label {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+.slider-checkbox input:checked + label:before {
+    transform: translateX(26px);
+}
+
+.slider-checkbox span {
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.slider-checkbox {
+display: inline-block;
+margin-right: 20px;
+}
+
+.slider-checkbox input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider-checkbox label {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    background-color: #ccc;
+    border-radius: 34px;
+    transition: .4s;
+}
+
+.slider-checkbox label span {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+}
+
+.slider-checkbox label:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: .4s;
+}
+
+.slider-checkbox input:checked + label {
+    background-color: #2196F3;
+}
+
+.slider-checkbox input:focus + label {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+.slider-checkbox input:checked + label:before {
+    transform: translateX(26px);
+}
+
+.slider-checkbox span {
+    margin-left: 10px;
+    vertical-align: middle;
+}
