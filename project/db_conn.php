@@ -2,7 +2,7 @@
 
 $sname= "localhost";
 $unmae= "id22168924_db";
-$password = "Sp12nara!";
+$password = "";
 
 $db_name = "id22168924_project_db";
 
